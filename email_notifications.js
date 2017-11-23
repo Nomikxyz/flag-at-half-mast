@@ -1,7 +1,7 @@
 'use strict';
 const nodemailer = require('nodemailer');
 module.exports = sendSomeMail
-function sendSomeMail(recipients) {
+function sendSomeMail(recipients, output) {
 // Generate test SMTP service account from ethereal.email
 // Only needed if you don't have a real mail account for testing
 nodemailer.createTestAccount((err, account) => {
@@ -12,17 +12,17 @@ nodemailer.createTestAccount((err, account) => {
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-            user: "javathunderman@nomik.xyz", // generated ethereal user
+            user: "hello@nomik.xyz", // generated ethereal user
             pass: ""  // generated ethereal password
         }
     });
 
     // setup email data with unicode symbols
     let mailOptions = {
-        from: '"javathunderman" <javathunderman@nomik.xyz>', // sender address
+        from: '"Flag at half mast" <hello@nomik.xyz>', // sender address
         to: recipients, // list of receivers
         subject: 'Hello', // Subject line
-        text: 'Flags'
+        html: "<b>From the \"Flag at half-mast\" service. </b><br>" + output "<br><b>To unsubscribe, please email hello@nomik.xyz. <br>Information provided by the White House Presidential Proclamation Log. <br>This information may be inaccurate. Please verify with other sources. </b>"
     };
 
     // send mail with defined transport object

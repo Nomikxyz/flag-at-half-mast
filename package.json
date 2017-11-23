@@ -3,7 +3,8 @@
   "description": "Determine whether the US flag is to be flown at half mast. ",
   "author": "https://github.com/javathunderman",
   "dependencies": {
-    "feed-read": "*"
+    "feed-read": "*",
+    "nodemailer": "^4.4.0"
   },
   "engines": {
     "node": "0.10.x"
